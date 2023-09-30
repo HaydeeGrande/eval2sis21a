@@ -1,4 +1,3 @@
-
 import 'package:eval2sis21a/pages/listado.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +5,7 @@ import 'listado.dart';
 import 'formulario.dart';
 import 'inicio.dart';
 
-class Home extends StatefulWidget{
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
@@ -15,29 +14,35 @@ class Home extends StatefulWidget{
 
 class _HomeState extends State<Home> {
   int _itemDrawer = 0;
-  _getDrawerItem(int position){
-    switch(position){
-      case 0: return Inicio();
-      case 1: return listadoState();
-      case 2: return Formulario();
-
+  _getDrawerItem(int position) {
+    switch (position) {
+      case 0:
+        return Inicio();
+      case 1:
+        return const Listado(
+          title: 'Listado de Productos',
+        );
+      case 2:
+        return Formulario();
     }
   }
-  void _onSelectItemDrawer(int pos){
+
+  void _onSelectItemDrawer(int pos) {
     Navigator.pop(context);
     setState(() {
       _itemDrawer = pos;
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Actividad Evaluada',),
+        title: Text(
+          'Actividad Evaluada',
+        ),
       ),
-      drawer:Drawer(
+      drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -58,9 +63,8 @@ class _HomeState extends State<Home> {
               title: Text('Home',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                  )
-              ),
-              onTap: (){
+                  )),
+              onTap: () {
                 _onSelectItemDrawer(0);
               },
             ),
@@ -70,29 +74,21 @@ class _HomeState extends State<Home> {
             ListTile(
               leading: Icon(Icons.arrow_forward_ios),
               title: Text('Listado'),
-              onTap: (){
+              onTap: () {
                 _onSelectItemDrawer(1);
               },
             ),
-
             ListTile(
               leading: Icon(Icons.arrow_forward_ios),
               title: Text('Formulario'),
-              onTap: (){
+              onTap: () {
                 _onSelectItemDrawer(2);
               },
             ),
-
           ],
         ),
-
-
       ),
-
-
       body: _getDrawerItem(_itemDrawer),
     );
-
   }
-
 }
