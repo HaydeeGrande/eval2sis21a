@@ -56,8 +56,14 @@ class listadoState extends State<Listado> {
             return ListView.builder(
                 itemCount: snapshot.data?.length,
                 itemBuilder:((context,index){
-                  return Text(snapshot.data?[index]["nombre"] + "-" +
-                      snapshot.data?[index]["precio"]+ "-" +snapshot.data?[index]["stock"]);
+                  return Text("Nombre: "+ snapshot.data?[index]["nombre"]+"-" +"-" + "Precio: " +
+                      snapshot.data?[index]["precio"] +"-" +"-" +"Stock: " +snapshot.data?[index]["stock"],
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        fontSize: 25,
+
+
+                      ));
                 })
             );
 
