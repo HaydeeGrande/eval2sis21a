@@ -2,17 +2,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class Listado extends StatefulWidget {
+  const Listado({super.key, required this.title});
 
   final String title;
 
   @override
 
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Listado> createState() => _listadoState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _listadoState extends State<Listado> {
 
   void getProductos() async {
     CollectionReference collectionReference =
