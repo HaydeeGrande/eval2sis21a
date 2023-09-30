@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1094785444311",
+    "project_id": "eval2-sis21a-a097d",
+    "storage_bucket": "eval2-sis21a-a097d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094785444311:android:8f794a1f492cc7453b0392",
+        "android_client_info": {
+          "package_name": "com.haydeemilenaitca"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3enV-rcwTcn1wnJVQyq8xgVuojr902_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094785444311:android:6928fd5bf30994503b0392",
+        "android_client_info": {
+          "package_name": "com.milenahaydeeitca.eval2sis21a"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3enV-rcwTcn1wnJVQyq8xgVuojr902_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
