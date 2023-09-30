@@ -9,10 +9,10 @@ class Listado extends StatefulWidget {
 
   @override
 
-  State<Listado> createState() => _listadoState();
+  State<Listado> createState() => listadoState();
 }
 
-class _listadoState extends State<Listado> {
+class listadoState extends State<Listado> {
 
   void getProductos() async {
     CollectionReference collectionReference =

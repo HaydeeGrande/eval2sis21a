@@ -9,7 +9,7 @@ class Formulario extends StatelessWidget {
 
         children: [
           SizedBox(height:60),
-          Text('Regístrate de Producto',
+          Text('Regístro de Productos',
             style: TextStyle(
                 fontSize: 35,
                 fontWeight: FontWeight.bold,

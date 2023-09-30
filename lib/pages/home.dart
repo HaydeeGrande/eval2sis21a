@@ -1,6 +1,8 @@
+
+import 'package:eval2sis21a/pages/listado.dart';
 import 'package:flutter/material.dart';
 
-import 'Listado.dart';
+import 'listado.dart';
 import 'formulario.dart';
 import 'inicio.dart';
 
@@ -16,7 +18,7 @@ class _HomeState extends State<Home> {
   _getDrawerItem(int position){
     switch(position){
       case 0: return Inicio();
-      case 1: return Listado(title: 'listado',);
+      case 1: return listadoState();
       case 2: return Formulario();
 
     }
@@ -90,5 +92,7 @@ class _HomeState extends State<Home> {
 
       body: _getDrawerItem(_itemDrawer),
     );
+
   }
+
 }
