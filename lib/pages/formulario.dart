@@ -33,7 +33,7 @@ class Formulario extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: Colors.purple),
           ),
-          SizedBox(height: 50),
+          SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.only(left: 50, right: 50),
             child: TextField(

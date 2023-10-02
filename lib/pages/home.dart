@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.pinkAccent,
+                color: Colors.purple,
               ),
               child: Text(
                 'ITCA-FEPADE',
@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
             ),
             ListTile(
               leading: Icon(Icons.home),
-              title: Text('Home',
+              title: Text('Acerca de Nosotros',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   )),

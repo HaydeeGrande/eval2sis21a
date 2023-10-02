@@ -51,28 +51,61 @@ class listadoState extends State<Listado> {
       ),
       body: FutureBuilder(
         future: getMensajes(),
-        builder: ((context, snapshot){
-          if(snapshot.hasData){
-            return ListView.builder(
-                itemCount: snapshot.data?.length,
-                itemBuilder:((context,index){
-                  return Text("Nombre: "+ snapshot.data?[index]["nombre"]+"-" +"-" + "Precio: " +
-                      snapshot.data?[index]["precio"] +"-" +"-" +"Stock: " +snapshot.data?[index]["stock"],
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 25,
-
-
-                      ));
-                })
-            );
-
-          }else{
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-                child: CircularProgressIndicator()
+              child: CircularProgressIndicator(),
+            );
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Text('Error: ${snapshot.error}'),
+            );
+          } else if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data?.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  elevation: 5,
+                  margin: EdgeInsets.all(10),
+                  child: ListTile(
+                    title: Text(
+                      "${snapshot.data?[index]["nombre"]}",
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
+                      ),
+                    ),
+                    subtitle: Row(
+                      children: [
+                        Icon(Icons.attach_money, color: Colors.green),
+                        Text(
+                          "Precio: ${snapshot.data?[index]["precio"].toString()} | ",
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        Icon(Icons.store, color: Colors.orange),
+                        Text(
+                          "Stock: ${snapshot.data?[index]["stock"].toString()}",
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          } else {
+            return const Center(
+              child: Text('No hay datos disponibles.'),
             );
           }
-        }),
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: getProductos,
