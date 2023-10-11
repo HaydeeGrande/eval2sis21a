@@ -1,36 +1,64 @@
+import 'package:eval2sis21a/login_page.dart';
+import 'package:eval2sis21a/pages/formulario.dart';
 import 'package:eval2sis21a/pages/listado.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'listado.dart';
-import 'formulario.dart';
-import 'inicio.dart';
-
-class Home extends StatefulWidget {
-  const Home({super.key});
-
+class MyHomePage extends StatefulWidget {
   @override
-  State<Home> createState() => _HomeState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _HomeState extends State<Home> {
-  int _itemDrawer = 0;
-  _getDrawerItem(int position) {
-    switch (position) {
+class _MyHomePageState extends State<MyHomePage> {
+  int _item = 0;
+
+  showAlertDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Log Out?'),
+            content: const Text('Seguro que deseas Cerrar Sesión?'),
+            actions: [
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: Colors.redAccent),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Cancelar')),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut();
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
+                  child: const Text(
+                    'Cerrar Sesion',
+                  )),
+            ],
+          );
+        });
+  }
+
+  getDrawerItemWidget(int pos) {
+    switch (pos) {
       case 0:
-        return Inicio();
-      case 1:
-        return const Listado(
-          title: 'Listado de Productos',
+        return Listado(
+          title: "Lista de Productos",
         );
-      case 2:
+      case 1:
         return Formulario();
+      case 2:
+        return ();
+      // case 3: return SignUpPage();
     }
   }
 
-  void _onSelectItemDrawer(int pos) {
-    Navigator.pop(context);
+  void setItemDrawer(int position) {
+    Navigator.pop(context); // close the drawer
     setState(() {
-      _itemDrawer = pos;
+      _item = position;
     });
   }
 
@@ -38,9 +66,17 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Actividad Evaluada',
-        ),
+        title: Text('Menu Drawer'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                showAlertDialog();
+                // FirebaseAuth.instance.signOut();
+                //     Navigator.pushReplacement(context,
+                //         MaterialPageRoute(builder: (context) => LoginPage()));
+              },
+              icon: const Icon(Icons.close))
+        ],
       ),
       drawer: Drawer(
         child: ListView(
@@ -48,10 +84,10 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.purple,
+                color: Colors.blue,
               ),
               child: Text(
-                'ITCA-FEPADE',
+                'Menu Productos',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
@@ -59,36 +95,41 @@ class _HomeState extends State<Home> {
               ),
             ),
             ListTile(
+              selected: (0 == _item),
               leading: Icon(Icons.home),
-              title: Text('Acerca de Nosotros',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  )),
+              title: Text('Productos'),
               onTap: () {
-                _onSelectItemDrawer(0);
-              },
-            ),
-            Divider(
-              color: Colors.blue,
-            ),
-            ListTile(
-              leading: Icon(Icons.arrow_forward_ios),
-              title: Text('Listado'),
-              onTap: () {
-                _onSelectItemDrawer(1);
+                setItemDrawer(0);
               },
             ),
             ListTile(
+              selected: (1 == _item),
               leading: Icon(Icons.arrow_forward_ios),
-              title: Text('Formulario'),
+              title: Text('Registro Producto'),
               onTap: () {
-                _onSelectItemDrawer(2);
+                setItemDrawer(1);
               },
             ),
+            ListTile(
+              selected: (2 == _item),
+              leading: Icon(Icons.arrow_forward_ios),
+              title: Text('Cerrrar Sesión'),
+              onTap: () {
+                setItemDrawer(2);
+              },
+            ),
+            //   ListTile(
+            //     selected: (3==_item),
+            //  leading: Icon(Icons.arrow_forward_ios),
+            //       title: Text('SignUpPage'),
+            //     onTap: (){
+            //       setItemDrawer(3);
+            //     },
+            //   ),
           ],
         ),
       ),
-      body: _getDrawerItem(_itemDrawer),
+      body: getDrawerItemWidget(_item),
     );
   }
 }

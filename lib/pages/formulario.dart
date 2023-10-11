@@ -22,8 +22,10 @@ class Formulario extends StatelessWidget {
           .add({"nombre": nombre, "precio": precio, "stock": stock});
     }
 
+
     return Center(
       child: Column(
+
         children: [
           SizedBox(height: 60),
           Text(
