@@ -13,6 +13,7 @@ class Listado extends StatefulWidget {
 }
 
 class listadoState extends State<Listado> {
+  
 
   void getProductos() async {
     CollectionReference collectionReference =
@@ -22,9 +23,13 @@ class listadoState extends State<Listado> {
       for (var doc in mensajes.docs){
         print(doc.data());
         //chatsx.add(doc.data());
+        
       }
+      
     }
+    
   }
+  
 
 
 
@@ -64,6 +69,7 @@ class listadoState extends State<Listado> {
             return ListView.builder(
               itemCount: snapshot.data?.length,
               itemBuilder: (context, index) {
+                
                 return Card(
                   elevation: 5,
                   margin: EdgeInsets.all(10),
@@ -94,6 +100,7 @@ class listadoState extends State<Listado> {
                             color: Colors.grey,
                           ),
                         ),
+                        
                       ],
                     ),
                   ),
@@ -107,11 +114,7 @@ class listadoState extends State<Listado> {
           }
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: getProductos,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      
 
     );
 
@@ -119,6 +122,7 @@ class listadoState extends State<Listado> {
     // This trailing comma makes auto-formatting nicer for build methods.
 
   }
+
 
   @override
   void initState() {
@@ -134,5 +138,6 @@ class listadoState extends State<Listado> {
     super.dispose();
 
   }
+
 
 }

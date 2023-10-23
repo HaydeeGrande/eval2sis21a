@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(backgroundColor:Color.fromARGB(255, 203, 162, 245),
         //leading: const Icon(Icons.close),
         leading: Builder(
           builder: (BuildContext context) {
@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Login",
+                "Inicio de Sesion",
                 style: TextStyle(fontSize: 27, fontWeight:
                 FontWeight.bold),
               ),
@@ -76,11 +76,12 @@ class _LoginPageState extends State<LoginPage> {
                   width: double.infinity,
                   height: 45,
                   decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color:Color.fromARGB(255, 203, 162, 245),
                     borderRadius: BorderRadius.circular(10),
+                    
                   ),
                   child: const
-                  Center(child:Text("Login",style:
+                  Center(child:Text("Iniciar sesion",style:
                   TextStyle(color: Colors.white,fontWeight:
                   FontWeight.bold),)),
                 ),
@@ -98,13 +99,13 @@ class _LoginPageState extends State<LoginPage> {
                             => const SignUpPage()),
                                 (route) => false);
                       },
-                      child: const Text("Registrarme",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold),)),
+                      child: const Text("Registrarme",style: TextStyle(color: Color.fromARGB(255, 203, 162, 245),fontWeight: FontWeight.bold),)),
 
                 ],
               ),
               const SizedBox(height: 25,),
               Text('$mensaje',
-                style: const TextStyle(color: Colors.blue,
+                style: const TextStyle(color: Color.fromARGB(255, 203, 162, 245),
                     fontWeight: FontWeight.bold),)
             ],
           ),

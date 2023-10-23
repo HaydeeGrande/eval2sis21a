@@ -50,7 +50,7 @@ class Inicio extends StatelessWidget{
 
               )
           ),
-          SizedBox(height:50),
+          SizedBox(height:30),
           // Image.asset('images/imagen1.jpg'),
         ],
 

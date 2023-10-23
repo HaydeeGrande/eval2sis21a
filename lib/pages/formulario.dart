@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:eval2sis21a/main.dart';
 import 'package:eval2sis21a/pages/listado.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +26,7 @@ class Formulario extends StatelessWidget {
       child: Column(
 
         children: [
-          SizedBox(height: 60),
+          SizedBox(height: 50),
           Text(
             'Regístro de Productos',
             style: TextStyle(
@@ -35,7 +34,7 @@ class Formulario extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: Colors.purple),
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.only(left: 50, right: 50),
             child: TextField(
@@ -67,6 +66,7 @@ class Formulario extends StatelessWidget {
                   labelText: 'Stock', hintText: 'Digite el stock:'),
             ),
           ),
+          SizedBox(height:3),
           ElevatedButton(
               onPressed: () async {
                 //print('Sus nombres son: ' + _nombresControllers.text);

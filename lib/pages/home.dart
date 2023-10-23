@@ -1,5 +1,6 @@
 import 'package:eval2sis21a/login_page.dart';
 import 'package:eval2sis21a/pages/formulario.dart';
+import 'package:eval2sis21a/pages/inicio.dart';
 import 'package:eval2sis21a/pages/listado.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text('Log Out?'),
+            title: const Text('Cerrar sesion'),
             content: const Text('Seguro que deseas Cerrar Sesión?'),
             actions: [
               ElevatedButton(
@@ -50,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 1:
         return Formulario();
       case 2:
-        return ();
+        return Inicio();
       // case 3: return SignUpPage();
     }
   }
@@ -65,8 +66,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Menu Drawer'),
+      appBar: AppBar(backgroundColor:Color.fromARGB(255, 203, 162, 245),
+        title: Text('Actividad de login'),
         actions: [
           IconButton(
               onPressed: () {
@@ -84,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color.fromARGB(255, 203, 162, 245),
               ),
               child: Text(
                 'Menu Productos',
@@ -111,13 +112,15 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
-              selected: (2 == _item),
+              selected: (1 == _item),
               leading: Icon(Icons.arrow_forward_ios),
-              title: Text('Cerrrar Sesión'),
+              title: Text('Acerca de mi'),
               onTap: () {
                 setItemDrawer(2);
               },
             ),
+            
+            
             //   ListTile(
             //     selected: (3==_item),
             //  leading: Icon(Icons.arrow_forward_ios),

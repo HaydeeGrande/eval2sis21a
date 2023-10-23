@@ -58,8 +58,8 @@ class _InputWidgetState extends State<InputWidget> {
     child: widget.isPasswordField==true? Icon(
     _obscureText ? Icons.visibility_off :
     Icons.visibility,
-    color: _obscureText == false ? Colors.blue
-        : Colors.grey
+    color: _obscureText == false ? Colors.purple
+        : const Color.fromARGB(255, 212, 150, 150)
     ): const Text(""),
     ),
     )

@@ -28,8 +28,8 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("SignUp"),
+        appBar: AppBar(backgroundColor:Color.fromARGB(255, 203, 162, 245),
+          title: const Text("Actividad Evaluada Login"),
         ),
         body: Center(
         child: Padding(
@@ -40,7 +40,7 @@ class _SignUpPageState extends State<SignUpPage> {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
     const Text(
-    "Sign Up",
+    "Registrarse",
     style: TextStyle(fontSize: 27, fontWeight:
     FontWeight.bold),
     ),
@@ -77,13 +77,13 @@ class _SignUpPageState extends State<SignUpPage> {
     width: double.infinity,
     height: 45,
     decoration: BoxDecoration(
-    color: Colors.blue,
+    color:Color.fromARGB(255, 203, 162, 245),
     borderRadius:
     BorderRadius.circular(10),
     ),
     child: const Center(
     child: Text(
-    "Sign Up",
+    "Registrar",
       style: TextStyle(color:
       Colors.white, fontWeight: FontWeight.bold),
     )),
@@ -102,7 +102,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     MaterialPageRoute(builder: (context) => const LoginPage()),
                         (route) => false);
               },
-              child: const Text("Login", style:
+              child: const Text("Iniciar sesion", style:
               TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),))
         ],
       )
